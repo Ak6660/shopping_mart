@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Spinner from "./components/Spinner";
 import { fetchData } from "./productSlice/productSlice";
@@ -18,7 +18,7 @@ function App() {
   const navigate = useNavigate();
   const [curUser, setCurUser] = useState({});
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const savedItems = [];
     const orderHistory = [];
     const user = JSON.parse(localStorage.getItem("userData"));
